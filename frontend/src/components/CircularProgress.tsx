@@ -16,7 +16,7 @@ const CircularLoader: React.FC<CircularLoaderProps> = ({
 }) => {
   return (
     <div
-      className={'circular-loader' + className}
+      className={'circular-loader ' + className}
       style={{
         width: size,
         height: size,

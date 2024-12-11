@@ -44,9 +44,7 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
           <CircularLoader
             color='red'
             size={30}
-            className={`w-6 flex ml-auto cursor-pointer mb-8 ${
-              isPending ? 'opacity-50' : ''
-            }`}
+            className={`flex ml-auto mb-4`}
           />
         ) : (
           <img
