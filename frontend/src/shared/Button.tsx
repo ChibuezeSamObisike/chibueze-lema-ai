@@ -1,6 +1,7 @@
 import { forwardRef, ButtonHTMLAttributes } from 'react';
 import clsx from 'clsx';
-import TableLoader from 'components/TableLoader';
+
+import PublishLoaderIcon from 'assets/publish-loader.svg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
@@ -9,15 +10,20 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', className, children, isLoading, ...props }, ref) => {
-    const baseStyles = 'px-4 py-2 rounded-md';
+    const baseStyles =
+      'px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed';
+
     const variantStyles = {
-      primary: 'bg-[#334155] text-white hover:bg-[#42516b]',
-      secondary: 'bg-gray-200 text-gray-700 hover:bg-gray-300',
+      primary:
+        'bg-[#334155] text-white hover:bg-[#42516b] disabled:bg-gray-400',
+      secondary:
+        'bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:bg-gray-100',
     };
 
     return (
       <button
         ref={ref}
+        disabled={!!isLoading}
         className={clsx(
           baseStyles,
           variantStyles[variant],
@@ -26,11 +32,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...props}
       >
-        {children}{' '}
+        {children}
         {isLoading && (
           <div className='w-2'>
-            {' '}
-            <TableLoader color='#fff' />
+            <img src={PublishLoaderIcon} />
           </div>
         )}
       </button>

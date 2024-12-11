@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { PostsApi } from 'api/posts';
 import DeleteIcon from 'assets/delete-icon.svg';
+import CircularLoader from 'components/CircularProgress';
 import { FC } from 'react';
 import toast from 'react-hot-toast';
 
@@ -39,15 +40,19 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
       className='px-8 py-8 border-s-[#D5D7DA] shadow-md'
     >
       <div className='flex items-center w-full'>
-        <img
-          src={DeleteIcon}
-          role='button'
-          className={`w-6 flex ml-auto cursor-pointer mb-8 ${
-            isPending ? 'opacity-50' : ''
-          }`}
-          onClick={handleDeleteClick}
-          alt='Delete post'
-        />
+        {isPending ? (
+          <CircularLoader color='red' size={30} />
+        ) : (
+          <img
+            src={DeleteIcon}
+            role='button'
+            className={`w-6 flex ml-auto cursor-pointer mb-8 ${
+              isPending ? 'opacity-50' : ''
+            }`}
+            onClick={handleDeleteClick}
+            alt='Delete post'
+          />
+        )}
       </div>
       <h4 style={{ fontWeight: 500 }} className='mb-3 text-xl text-textPrimary'>
         {title}
