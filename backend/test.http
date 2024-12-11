@@ -1,0 +1,4 @@
+# GET http://localhost:3001/posts/?userId=e3f8a81b26c9427fa17a40bd70b95ed3
+
+
+DELETE  http://localhost:3001/posts/1a0c6b12aa614f75ade27f2782ae1fc0

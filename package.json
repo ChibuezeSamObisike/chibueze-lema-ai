@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-router-dom": "^7.0.2",
+    "vite-plugin-svgr": "^4.3.0"
+  }
+}
