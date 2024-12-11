@@ -41,7 +41,13 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
     >
       <div className='flex items-center w-full'>
         {isPending ? (
-          <CircularLoader color='red' size={30} />
+          <CircularLoader
+            color='red'
+            size={30}
+            className={`w-6 flex ml-auto cursor-pointer mb-8 ${
+              isPending ? 'opacity-50' : ''
+            }`}
+          />
         ) : (
           <img
             src={DeleteIcon}
