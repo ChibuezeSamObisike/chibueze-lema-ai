@@ -1,51 +1,23 @@
 import AppTable from 'components/AppTable';
 import DashboardLayout from 'layouts/DashboardLayout';
 import ReactPaginate from 'react-paginate';
-import { useNavigate } from 'react-router-dom';
 import { useUsersTable } from 'hooks/useUsersTable';
 import BackIcon from 'assets/back-icon.svg';
 import ErrorComponent from 'components/ErrorComponent';
 
-const header = [
-  {
-    title: 'Fullname',
-    key: 'name',
-    style: {
-      fontWeight: 600,
-    },
-  },
-  {
-    title: 'Email Address',
-    key: 'email',
-  },
-  {
-    title: 'Address',
-    key: 'address',
-    className: 'truncate',
-    style: {
-      width: '300px',
-      maxWidth: '300px',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
-  },
-];
-
 const UsersTable = () => {
-  const navigate = useNavigate();
   const itemsPerPage = 4;
 
-  const { users, isLoading, totalPages, currentPage, setCurrentPage, error } =
-    useUsersTable(itemsPerPage);
-
-  const handleRowClick = (id: string) => {
-    navigate(`/user-posts/${id}`);
-  };
-
-  const handlePageChange = (selectedItem: { selected: number }) => {
-    setCurrentPage(selectedItem.selected);
-  };
+  const {
+    header,
+    users,
+    isLoading,
+    totalPages,
+    currentPage,
+    handleRowClick,
+    handlePageChange,
+    error,
+  } = useUsersTable(itemsPerPage);
 
   if (error && !isLoading) {
     return <ErrorComponent error={error} />;

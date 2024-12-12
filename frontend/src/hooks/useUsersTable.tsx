@@ -2,8 +2,36 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { User } from '@types';
 import { UsersApi } from 'api/users';
+import { useNavigate } from 'react-router-dom';
 
 export const useUsersTable = (itemsPerPage: number) => {
+  const navigate = useNavigate();
+  const header = [
+    {
+      title: 'Fullname',
+      key: 'name',
+      style: {
+        fontWeight: 600,
+      },
+    },
+    {
+      title: 'Email Address',
+      key: 'email',
+    },
+    {
+      title: 'Address',
+      key: 'address',
+      className: 'truncate',
+      style: {
+        width: '300px',
+        maxWidth: '300px',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      },
+    },
+  ];
+
   const [currentPage, setCurrentPage] = useState(0);
 
   const {
@@ -40,6 +68,14 @@ export const useUsersTable = (itemsPerPage: number) => {
     })
   );
 
+  const handleRowClick = (id: string): void => {
+    navigate(`/user-posts/${id}`);
+  };
+
+  const handlePageChange = (selectedItem: { selected: number }): void => {
+    setCurrentPage(selectedItem.selected);
+  };
+
   const isLoading = usersLoading || countLoading;
 
   return {
@@ -49,5 +85,8 @@ export const useUsersTable = (itemsPerPage: number) => {
     currentPage,
     setCurrentPage,
     error: error || countError,
+    header,
+    handlePageChange,
+    handleRowClick,
   };
 };
