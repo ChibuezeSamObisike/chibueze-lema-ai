@@ -62,17 +62,7 @@ const AppTable: FC<IProps> = ({ header, tableData, isLoading, onRowClick }) => {
                       headerItem.className
                     )}
                   >
-                    {headerItem.key === 'address' &&
-                    typeof row[headerItem.key] === 'string' ? (
-                      <div className='relative group z-50'>
-                        <div className='truncate'>{row[headerItem.key]}</div>
-                        <div className='absolute left-0 top-full mt-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md px-3 py-1 z-10'>
-                          {row[headerItem.key]}
-                        </div>
-                      </div>
-                    ) : (
-                      row[headerItem.key]
-                    )}
+                    {row[headerItem.key]}
                   </td>
                 ))}
               </tr>

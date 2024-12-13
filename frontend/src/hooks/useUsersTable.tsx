@@ -4,8 +4,12 @@ import { User } from '@types';
 import { UsersApi } from 'api/users';
 import { useNavigate } from 'react-router-dom';
 
+import { Tooltip } from 'react-tooltip';
+import { truncateWithEllipses } from 'utils';
+
 export const useUsersTable = (itemsPerPage: number) => {
   const navigate = useNavigate();
+
   const header = [
     {
       title: 'Fullname',
@@ -60,10 +64,27 @@ export const useUsersTable = (itemsPerPage: number) => {
         street: string;
         state: string;
         zipcode: string;
-      }
+      },
+      i: number
     ) => ({
       ...user,
-      address: `${user?.street}, ${user?.city}, ${user?.state} ${user?.zipcode}`,
+      address: (
+        <>
+          <div
+            data-tooltip-id={`tooltip-${user?.id}-${i}`}
+            data-tooltip-content={`${user?.street}, ${user?.city}, ${user?.state} ${user?.zipcode}`}
+          >
+            {truncateWithEllipses(
+              `${user?.street}, ${user?.city}, ${user?.state} ${user?.zipcode}`,
+              19
+            )}
+          </div>
+          <Tooltip
+            id={`tooltip-${user?.id}-${i}`}
+            className='bg-gray-800 text-white text-xs rounded-md px-3 py-1'
+          />
+        </>
+      ),
     })
   );
 
