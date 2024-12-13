@@ -6,9 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 import { Tooltip } from 'react-tooltip';
 import { truncateWithEllipses } from 'utils';
+import useMediaQuery from 'hooks/useMediaQuery';
 
 export const useUsersTable = (itemsPerPage: number) => {
   const navigate = useNavigate();
+  const { isMobile } = useMediaQuery();
 
   const header = [
     {
@@ -26,8 +28,8 @@ export const useUsersTable = (itemsPerPage: number) => {
       title: 'Address',
       key: 'address',
       style: {
-        width: '300px',
-        maxWidth: '300px',
+        width: isMobile ? 'auto' : '300px',
+        maxWidth: isMobile ? 'auto' : '300px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
