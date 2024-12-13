@@ -14,7 +14,7 @@ router.get('/', async (req: Request, res: Response) => {
   res.status(201).json(posts);
 });
 
-router.post('/add', async (req: Request, res: Response): Promise<any> => {
+router.post('/', async (req: Request, res: Response): Promise<any> => {
   const { user_id, title, content } = req.body;
 
   const { error } = postValidationSchema.validate({ user_id, title, content });

@@ -21,14 +21,8 @@ export const useUsersTable = (itemsPerPage: number) => {
     {
       title: 'Address',
       key: 'address',
-      className: 'truncate',
-      style: {
-        width: '300px',
-        maxWidth: '300px',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-      },
+      className:
+        'w-[300px] max-w-[300px] whitespace-nowrap overflow-hidden text-ellipsis',
     },
   ];
 

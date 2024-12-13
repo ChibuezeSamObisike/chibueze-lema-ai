@@ -11,11 +11,13 @@ describe('Users Table Page', () => {
       cy.contains('th', header).should('be.visible');
     });
 
-    cy.get('.flex.justify-end').should('be.visible');
+    cy.get('.flex.items-center').should('be.visible');
   });
 
   it('should display user data in table rows', () => {
-    cy.wait(1000);
+    cy.intercept('GET', '**/api/users*').as('getUsers');
+
+    cy.wait('@getUsers').its('response.statusCode').should('eq', 304);
 
     cy.get('tbody tr').should('have.length.at.least', 1);
 
@@ -29,6 +31,9 @@ describe('Users Table Page', () => {
   });
 
   it('should navigate to user posts on row click', () => {
+    cy.intercept('GET', '**/api/users*').as('getUsers');
+    cy.wait('@getUsers');
+
     cy.get('tbody tr').first().click();
 
     cy.url().should('include', '/user-posts/');

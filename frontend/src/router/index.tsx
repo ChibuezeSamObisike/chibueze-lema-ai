@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import AppLoader from 'components/AppLoader';
+import ErrorComponent from 'components/ErrorComponent';
 
 interface IRoutes {
   path: string;
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
   routes.map(({ path, element }) => ({
     path,
     element: <Suspense fallback={<AppLoader />}>{element}</Suspense>,
+    errorElement: <ErrorComponent />,
   }))
 );
 

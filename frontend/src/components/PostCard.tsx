@@ -4,6 +4,7 @@ import DeleteIcon from 'assets/delete-icon.svg';
 import CircularLoader from 'components/CircularProgress';
 import { FC } from 'react';
 import toast from 'react-hot-toast';
+import { truncateWithEllipses } from 'utils';
 
 interface IProps {
   title: string;
@@ -65,7 +66,7 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
         style={{ fontWeight: 400 }}
         className='text-textPrimary font-400 leading-7'
       >
-        {body}
+        {truncateWithEllipses(body, 203)}
       </p>
     </div>
   );

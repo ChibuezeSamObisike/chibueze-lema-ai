@@ -28,7 +28,7 @@ export class PostsApi {
     content: string;
   }) {
     try {
-      const res = await http.post('/posts/add/', body);
+      const res = await http.post('/posts/', body);
       return res?.data;
     } catch (error) {
       console.error('Error fetching users:', error);

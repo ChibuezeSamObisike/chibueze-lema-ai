@@ -34,7 +34,10 @@ export const useUserPosts = ({ userId }: UseUserPostsProps) => {
   }
 
   return {
-    posts,
+    posts: posts?.sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    ),
     user,
     isLoading,
     error: error || userError,

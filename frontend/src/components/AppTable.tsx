@@ -58,11 +58,28 @@ const AppTable: FC<IProps> = ({ header, tableData, isLoading, onRowClick }) => {
                     key={cellIndex}
                     style={{ fontWeight: 400, ...headerItem?.style }}
                     className={clsx(
-                      'p-2 py-8 text-sm px-4 text-textPrimary',
+                      'p-2 py-8 text-sm px-4 text-textPrimary ',
                       headerItem.className
                     )}
                   >
-                    {row[headerItem.key]}
+                    {headerItem.key === 'address' &&
+                    typeof row[headerItem.key] === 'string' ? (
+                      <div className='relative group z-50'>
+                        <div className='truncate'>{row[headerItem.key]}</div>
+                        <div
+                          className='absolute left-0 top-full mt-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md px-3 py-1 z-10'
+                          style={{
+                            whiteSpace: 'nowrap',
+                            overflow: 'visible',
+                            maxWidth: 'none',
+                          }}
+                        >
+                          {row[headerItem.key]}
+                        </div>
+                      </div>
+                    ) : (
+                      row[headerItem.key]
+                    )}
                   </td>
                 ))}
               </tr>
