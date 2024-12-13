@@ -1,8 +1,6 @@
 import TableLoader from 'components/TableLoader';
 import { CSSProperties, FC, ReactNode } from 'react';
 import clsx from 'clsx';
-import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css';
 
 interface ITableHeader {
   align?: string;
@@ -13,7 +11,7 @@ interface ITableHeader {
 }
 
 type ITableData = {
-  [key: string]: ReactNode;
+  [key: string]: string | ReactNode;
 };
 
 interface IProps {
@@ -66,18 +64,11 @@ const AppTable: FC<IProps> = ({ header, tableData, isLoading, onRowClick }) => {
                   >
                     {headerItem.key === 'address' &&
                     typeof row[headerItem.key] === 'string' ? (
-                      <div>
-                        <span
-                          data-tooltip-id={`tooltip-${rowIndex}-${cellIndex}`}
-                          data-tooltip-content={String(row[headerItem.key])}
-                          className='truncate'
-                        >
+                      <div className='relative group z-50'>
+                        <div className='truncate'>{row[headerItem.key]}</div>
+                        <div className='absolute left-0 top-full mt-1 hidden group-hover:block bg-gray-800 text-white text-xs rounded-md px-3 py-1 z-10'>
                           {row[headerItem.key]}
-                        </span>
-                        <Tooltip
-                          id={`tooltip-${rowIndex}-${cellIndex}`}
-                          className='bg-gray-800 text-white text-xs rounded-md px-3 py-1'
-                        />
+                        </div>
                       </div>
                     ) : (
                       row[headerItem.key]
