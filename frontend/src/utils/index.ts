@@ -15,8 +15,8 @@ export function truncateWithEllipses(
     result += char;
   }
 
-  if (inputString.length <= numLetters) {
-    return result;
+  if (inputString.trim().length <= numLetters) {
+    return inputString;
   }
 
   return result.trim() + '...';
