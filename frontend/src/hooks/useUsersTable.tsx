@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { User } from '@types';
 import { UsersApi } from 'api/users';
+import { ITableHeader } from 'components/AppTable';
+import useMediaQuery from 'hooks/useMediaQuery';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
 import { Tooltip } from 'react-tooltip';
 import { truncateWithEllipses } from 'utils';
-import useMediaQuery from 'hooks/useMediaQuery';
-import { ITableHeader } from 'components/AppTable';
 
 export const useUsersTable = (itemsPerPage: number) => {
   const navigate = useNavigate();
@@ -44,14 +43,18 @@ export const useUsersTable = (itemsPerPage: number) => {
   ];
 
   const queryParams = new URLSearchParams(location.search);
-  const initialPage = parseInt(queryParams.get('page') || '0', 10);
+  const initialPage = Math.max(
+    parseInt(queryParams.get('page') || '1', 10) - 1,
+    0
+  );
 
   const [currentPage, setCurrentPage] = useState(initialPage);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    if (parseInt(params.get('page') || '0', 10) !== currentPage) {
-      params.set('page', currentPage.toString());
+    const newPage = currentPage + 1;
+    if (parseInt(params.get('page') || '1', 10) !== newPage) {
+      params.set('page', newPage.toString());
       navigate({ search: params.toString() }, { replace: true });
     }
   }, [currentPage, navigate, location.search]);
@@ -108,7 +111,7 @@ export const useUsersTable = (itemsPerPage: number) => {
   );
 
   const handleRowClick = (id: string): void => {
-    navigate(`/user-posts/${id}?page=${currentPage}`);
+    navigate(`/user-posts/${id}?page=${currentPage + 1}`);
   };
 
   const handlePageChange = (selectedItem: { selected: number }): void => {

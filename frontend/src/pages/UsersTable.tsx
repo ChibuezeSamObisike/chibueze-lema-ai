@@ -65,6 +65,9 @@ const UsersTable = () => {
         previousClassName='px-3 py-2 text-sm font-medium rounded-md cursor-pointer'
         nextClassName='px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 cursor-pointer'
         disabledClassName='cursor-not-allowed opacity-50'
+        renderOnZeroPageCount={null}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
       />
     </DashboardLayout>
   );
