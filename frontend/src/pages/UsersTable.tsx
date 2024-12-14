@@ -27,7 +27,9 @@ const UsersTable = () => {
 
   return (
     <DashboardLayout>
-      <h2 className='text-6xl mb-10'>Users</h2>
+      <h2 style={{ fontWeight: 500 }} className='text-6xl mb-10 text-[#181D27]'>
+        Users
+      </h2>
       <AppTable
         onRowClick={handleRowClick}
         tableData={users}

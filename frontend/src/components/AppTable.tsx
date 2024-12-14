@@ -56,7 +56,11 @@ const AppTable: FC<IProps> = ({ header, tableData, isLoading, onRowClick }) => {
                 {header.map((headerItem, cellIndex) => (
                   <td
                     key={cellIndex}
-                    style={{ fontWeight: 400, ...headerItem?.style }}
+                    style={{
+                      fontWeight: 400,
+                      fontSize: '14px',
+                      ...headerItem?.style,
+                    }}
                     className={clsx(
                       'p-2 py-8 text-sm px-4 text-textPrimary ',
                       headerItem.className

@@ -44,14 +44,14 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
         {isPending ? (
           <CircularLoader
             color='red'
-            size={30}
+            size={12}
             className={`flex ml-auto mb-4`}
           />
         ) : (
           <img
             src={DeleteIcon}
             role='button'
-            className={`w-6 flex ml-auto cursor-pointer mb-8 ${
+            className={`w-3 flex ml-auto cursor-pointer mb-8 ${
               isPending ? 'opacity-50' : ''
             }`}
             onClick={handleDeleteClick}
@@ -63,8 +63,8 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
         {title}
       </h4>
       <p
-        style={{ fontWeight: 400 }}
-        className='text-textPrimary font-400 leading-7'
+        style={{ fontWeight: 400, lineHeight: '20px' }}
+        className='text-textPrimary leading-7'
       >
         {truncateWithEllipses(body, 203)}
       </p>

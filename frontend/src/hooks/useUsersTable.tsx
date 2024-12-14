@@ -17,12 +17,16 @@ export const useUsersTable = (itemsPerPage: number) => {
       title: 'Fullname',
       key: 'name',
       style: {
-        fontWeight: 600,
+        fontWeight: 500,
+        color: '#535862',
       },
     },
     {
       title: 'Email Address',
       key: 'email',
+      style: {
+        textTransform: 'lowercase',
+      },
     },
     {
       title: 'Address',

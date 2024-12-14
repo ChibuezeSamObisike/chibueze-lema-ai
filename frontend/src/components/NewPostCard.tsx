@@ -18,7 +18,15 @@ const NewPostCard: FC<IProps> = ({ onClick }) => {
     >
       <div className='flex-col items-center justify-center text-center py-8 cursor-pointer'>
         <img src={NewPostIcon} alt='' className='mx-auto' />
-        <h1 className='text-textPrimary'>New post</h1>
+        <h1
+          style={{
+            fontSize: '14px',
+            fontWeight: 600,
+          }}
+          className='text-[#717680]'
+        >
+          New post
+        </h1>
       </div>
     </div>
   );
