@@ -38,13 +38,15 @@ const UserPosts = () => {
           className='text-textPrimary mb-3 font-600 flex'
         >
           <img src={BackIcon} alt='Back' />
-          <span style={{ fontWeight: 500 }} className='ml-2 text-textPrimary'>
+          <span style={{ fontWeight: 600 }} className='ml-2 text-textPrimary'>
             Back to users
           </span>
         </p>
         <h2 className='text-4xl mb-2 text-[#181D27]'>{user?.name}</h2>
-        <p className='text-textPrimary mb-8'>
-          {user?.email?.toLowerCase()}{' '}
+        <p className='text-textPrimary mb-4 flex'>
+          <span style={{ fontWeight: 300 }} className='mr-1'>
+            {user?.email?.toLowerCase()}{' '}
+          </span>
           <span style={{ fontWeight: 500 }}>• {posts?.length} Posts</span>
         </p>
       </div>
