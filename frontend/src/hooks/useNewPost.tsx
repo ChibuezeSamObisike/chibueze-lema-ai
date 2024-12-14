@@ -10,11 +10,12 @@ const schema = yup.object().shape({
   title: yup
     .string()
     .required('Title is required')
-    .max(100, 'Title cannot exceed 100 characters'),
+    .max(100, 'Title cannot exceed 100 characters')
+    .min(6, 'Title cannot be less than 6 characters'),
   content: yup
     .string()
     .required('Content is required')
-    .min(6, 'Content not be less than 6 characters'),
+    .min(6, 'Content cannot be less than 6 characters'),
 });
 
 interface FormInputs {
