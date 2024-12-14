@@ -51,7 +51,7 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
           <img
             src={DeleteIcon}
             role='button'
-            className={`w-3 flex ml-auto cursor-pointer mb-8 ${
+            className={`w-3 flex ml-auto cursor-pointer mb-4 ${
               isPending ? 'opacity-50' : ''
             }`}
             onClick={handleDeleteClick}
