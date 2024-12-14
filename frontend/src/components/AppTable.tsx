@@ -2,7 +2,7 @@ import TableLoader from 'components/TableLoader';
 import { CSSProperties, FC, ReactNode } from 'react';
 import clsx from 'clsx';
 
-interface ITableHeader {
+export interface ITableHeader {
   align?: string;
   title: string;
   key: string;

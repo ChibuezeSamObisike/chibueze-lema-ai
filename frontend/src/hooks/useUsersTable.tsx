@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 import { truncateWithEllipses } from 'utils';
 import useMediaQuery from 'hooks/useMediaQuery';
+import { ITableHeader } from 'components/AppTable';
 
 export const useUsersTable = (itemsPerPage: number) => {
   const navigate = useNavigate();
   const { isMobile } = useMediaQuery();
 
-  const header = [
+  const header: ITableHeader[] = [
     {
       title: 'Fullname',
       key: 'name',
