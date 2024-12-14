@@ -3,7 +3,7 @@ import PostCard from 'components/PostCard';
 import DashboardLayout from 'layouts/DashboardLayout';
 import BackIcon from 'assets/back-icon.svg';
 import NewPostModal from 'components/NewPostModal';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import TableLoader from 'components/TableLoader';
 import { useModalDisclosure } from 'hooks/useModalDisclosure';
 import { useUserPosts } from 'hooks/useUserPosts';
@@ -12,9 +12,13 @@ import ErrorComponent from 'components/ErrorComponent';
 const UserPosts = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const location = useLocation();
 
   const { isOpen, closeModal, openModal } = useModalDisclosure();
   const { posts, user, isLoading, error } = useUserPosts({ userId: id! });
+
+  const queryParams = new URLSearchParams(location.search);
+  const currentPage = queryParams.get('page') || '0';
 
   if (isLoading) {
     return (
@@ -34,7 +38,7 @@ const UserPosts = () => {
       <div>
         <p
           role='button'
-          onClick={() => navigate('/')}
+          onClick={() => navigate(`/?page=${currentPage}`)}
           className='text-textPrimary mb-3 font-600 flex'
         >
           <img src={BackIcon} alt='Back' />
