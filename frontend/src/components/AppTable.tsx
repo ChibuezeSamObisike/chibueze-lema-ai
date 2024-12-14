@@ -72,7 +72,7 @@ const AppTable: React.FC<IProps> = ({
                     <td
                       key={cellIndex}
                       style={{
-                        fontWeight: 400,
+                        fontWeight: 300,
                         fontSize: '14px',
                         ...headerItem?.style,
                       }}

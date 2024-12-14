@@ -18,9 +18,10 @@ export const useUsersTable = (itemsPerPage: number) => {
       title: 'Fullname',
       key: 'name',
       style: {
-        fontWeight: 600,
+        fontWeight: 500,
         color: '#535862',
       },
+      className: 'font-[500]',
     },
     {
       title: 'Email Address',

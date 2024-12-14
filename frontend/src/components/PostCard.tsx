@@ -38,7 +38,7 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
         border: '1px solid #D5D7DA',
         borderRadius: '8px',
       }}
-      className='px-4 py-8 border-s-[#D5D7DA] shadow-md hover:shadow-xl'
+      className='px-6 py-8 border-s-[#D5D7DA] shadow-md hover:shadow-xl'
     >
       <div className='flex items-center w-full'>
         {isPending ? (
