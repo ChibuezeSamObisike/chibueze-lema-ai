@@ -63,7 +63,7 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
         {title}
       </h4>
       <p
-        style={{ fontWeight: 400, lineHeight: '20px' }}
+        style={{ fontWeight: 300, lineHeight: '20px' }}
         className='text-textPrimary leading-7'
       >
         {truncateWithEllipses(body, 203)}

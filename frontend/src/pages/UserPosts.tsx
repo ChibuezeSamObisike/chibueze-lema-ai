@@ -38,15 +38,18 @@ const UserPosts = () => {
           className='text-textPrimary mb-3 font-600 flex'
         >
           <img src={BackIcon} alt='Back' />
-          <span className='ml-2 font-bold text-textPrimary'>Back to users</span>
+          <span style={{ fontWeight: 500 }} className='ml-2 text-textPrimary'>
+            Back to users
+          </span>
         </p>
-        <h2 className='text-3xl mb-2'>{user?.name}</h2>
+        <h2 className='text-4xl mb-2 text-[#181D27]'>{user?.name}</h2>
         <p className='text-textPrimary mb-8'>
-          {user?.email?.toLowerCase()} • {posts?.length} Posts
+          {user?.email?.toLowerCase()}{' '}
+          <span style={{ fontWeight: 500 }}>• {posts?.length} Posts</span>
         </p>
       </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
         <NewPostCard onClick={openModal} />
         {posts?.map((post, i) => (
           <PostCard {...post} key={i} />
