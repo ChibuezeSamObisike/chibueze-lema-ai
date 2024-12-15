@@ -38,9 +38,9 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
         border: '1px solid #D5D7DA',
         borderRadius: '8px',
       }}
-      className='px-6 pb-8 pt-4 border-s-[#D5D7DA] shadow-md hover:shadow-xl'
+      className='px-8 pb-8 pt-4 border-s-[#D5D7DA] shadow-md hover:shadow-xl relative'
     >
-      <div className='flex items-center w-full'>
+      <div className='flex items-center w-full absolute top-4 right-4'>
         {isPending ? (
           <CircularLoader
             color='red'
@@ -61,7 +61,7 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
       </div>
       <h4
         style={{ fontWeight: 500, wordWrap: 'break-word' }}
-        className='mb-3 text-xl text-textPrimary'
+        className='mb-3 text-xl text-textPrimary mt-4'
       >
         {title}
       </h4>

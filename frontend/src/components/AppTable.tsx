@@ -3,6 +3,7 @@ import TableLoader from 'components/TableLoader';
 import ReactPaginate from 'react-paginate';
 import clsx from 'clsx';
 import BackIcon from 'assets/back-icon.svg';
+import useMediaQuery from 'hooks/useMediaQuery';
 
 export interface ITableHeader {
   align?: string;
@@ -36,6 +37,7 @@ const AppTable: React.FC<IProps> = ({
   totalPages,
   onPageChange,
 }) => {
+  const { isMobile } = useMediaQuery();
   return (
     <>
       <div
@@ -130,6 +132,8 @@ const AppTable: React.FC<IProps> = ({
             previousClassName='px-3 py-2 text-sm font-medium rounded-md cursor-pointer'
             nextClassName='px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-100 cursor-pointer'
             disabledClassName='cursor-not-allowed opacity-50'
+            pageRangeDisplayed={isMobile ? 1 : 3}
+            marginPagesDisplayed={isMobile ? 1 : 3}
           />
         </div>
       )}
