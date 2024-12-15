@@ -17,14 +17,17 @@ const PostTitleInput = forwardRef<HTMLInputElement, PostTitleInputProps>(
   ) => {
     return (
       <div>
-        <label className='block text-md font-medium text-gray-700 mb-1'>
+        <label
+          style={{ letterSpacing: '0.1px' }}
+          className='block text-md text-textPrimary mb-1 font-[500]'
+        >
           {label}
         </label>
         <input
           ref={ref}
           type='text'
           placeholder={placeholder}
-          className={`w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full border border-gray-300 rounded-md p-2 focus:outline-none  ${
             className || ''
           }`}
           {...props}

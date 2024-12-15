@@ -20,16 +20,19 @@ const PostContentTextarea = forwardRef<
   ) => {
     return (
       <div>
-        <label className='block text-md font-medium text-gray-700 mb-1'>
+        <label
+          style={{ letterSpacing: '0.1px' }}
+          className='block text-md font-[500] text-textPrimary mb-1'
+        >
           {label}
         </label>
         <textarea
           ref={ref}
           placeholder={placeholder}
-          className={`w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full border border-gray-300 rounded-md p-2 focus:outline-none ${
             className || ''
           }`}
-          rows={4}
+          rows={6}
           {...props}
         ></textarea>
       </div>

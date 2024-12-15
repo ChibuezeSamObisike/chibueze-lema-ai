@@ -20,17 +20,19 @@ const NewPostModal: React.FC<NewPostModalProps> = ({ isOpen, onClose }) => {
         <div>
           <PostTitleInput
             {...register('title')}
-            placeholder='Enter post title'
+            placeholder='Give your post a title'
+            className='placeholder:text-[#94A3B8] placeholder:font-[300]'
           />
           {errors.title && (
             <p className='text-red-500 text-sm mt-1'>{errors.title.message}</p>
           )}
         </div>
 
-        <div>
+        <div className='mt-5'>
           <PostContentTextarea
             {...register('content')}
-            placeholder='Enter post content'
+            placeholder='Write something mind-blowing'
+            className='placeholder:text-[#94A3B8] placeholder:font-[300]'
           />
           {errors.content && (
             <p className='text-red-500 text-sm mt-1'>

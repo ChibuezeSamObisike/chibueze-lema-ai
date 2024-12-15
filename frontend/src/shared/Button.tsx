@@ -15,9 +15,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        'bg-[#334155] text-white hover:bg-[#42516b] disabled:bg-gray-400',
+        'bg-[#334155] text-white hover:bg-[#42516b] disabled:bg-gray-400 font-[500]',
       secondary:
-        'bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:bg-gray-100',
+        'bg-white text-gray-700 border border-[#E2E8F0] hover:bg-gray-100 disabled:bg-gray-100 font-[300]',
     };
 
     return (
@@ -34,7 +34,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
         {isLoading && (
-          <div className='w-2'>
+          <div className='w-5 ml-2'>
             <img src={PublishLoaderIcon} />
           </div>
         )}
