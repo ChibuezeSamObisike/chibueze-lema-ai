@@ -47,7 +47,7 @@ const UserPosts = () => {
           </span>
         </p>
         <h2 className='text-4xl mb-2 text-[#181D27]'>{user?.name}</h2>
-        <p className='text-textPrimary text-sm mb-4 flex'>
+        <p className='text-textPrimary text-sm mb-4 flex flex-col md:flex-row'>
           <span style={{ fontWeight: 300 }} className='mr-1'>
             {user?.email?.toLowerCase()}{' '}
           </span>

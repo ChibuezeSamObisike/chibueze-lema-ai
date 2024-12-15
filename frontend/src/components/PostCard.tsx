@@ -59,11 +59,19 @@ const PostCard: FC<IProps> = ({ title, body, id }) => {
           />
         )}
       </div>
-      <h4 style={{ fontWeight: 500 }} className='mb-3 text-xl text-textPrimary'>
+      <h4
+        style={{ fontWeight: 500, wordWrap: 'break-word' }}
+        className='mb-3 text-xl text-textPrimary'
+      >
         {title}
       </h4>
       <p
-        style={{ fontWeight: 300, lineHeight: '20px', fontSize: '14px' }}
+        style={{
+          fontWeight: 300,
+          lineHeight: '20px',
+          fontSize: '14px',
+          wordWrap: 'break-word',
+        }}
         className='text-textPrimary leading-7'
       >
         {truncateWithEllipses(body, 350)}
